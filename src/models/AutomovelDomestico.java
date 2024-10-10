@@ -3,10 +3,12 @@ package models;
 import java.time.LocalDate;
 
 public class AutomovelDomestico extends Automotor {
+	//Declarando variáveis
 	private int qtd_max_passageiros;
 	private String tipo_freio;
 	private boolean airbag;
 	
+	//Cirando construtores da classe e chamando a super classe
 	public AutomovelDomestico (String modelo, LocalDate ano_fabricacao, String montadora, String cor, double kilometragem, 
 			int qtd_max_passageiros, String tipo_freio, boolean airbag) {
 		super(modelo, ano_fabricacao, montadora, cor, kilometragem);
@@ -15,10 +17,24 @@ public class AutomovelDomestico extends Automotor {
 		this.airbag = airbag;
 	}
 	
-	 @Override
+	//@return getters dos construtores
+
+	public int getQtdPassageiros() {
+		return qtd_max_passageiros;
+	}
+	
+	public String getTipoFreio() {
+		return tipo_freio;
+	}
+	
+	public boolean getAirbag() {
+		return airbag;
+	}
+	
+	
+	@Override
 	    public String getInsert() {
-	        return String.format("INSERT INTO AutomovelDomestico (modelo, ano_fabricacao, montadora, cor, kilometragem, qtd_max_passageiros, tipo_freio, airbag) VALUES ('%s', '%s', '%s', '%s', %.2f, %d, '%s', %b);",
-	                getModelo(), getAno_fabricacao(), getMontadora(), getCor(), getKilometragem(),
-	                qtd_max_passageiros, tipo_freio, airbag);
-	    }
+	        return 
+	        	getModelo() +  ", " + getAno_fabricacao() + ", " + getMontadora() + ", " + getCor() + ", " +  getKilometragem() + ", " + getQtdPassageiros() + ", " + getTipoFreio()+ ", " + getAirbag();
+	}
 }

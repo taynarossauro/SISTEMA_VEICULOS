@@ -2,6 +2,7 @@ package models;
 
 import java.time.LocalDate;
 
+//Declarando variáveis
 public abstract class Automotor {
 	private String modelo;
 	private LocalDate ano_fabricacao;
@@ -9,7 +10,9 @@ public abstract class Automotor {
 	private String cor;
 	private double kilometragem; //Representa o odômetro
 
+	//Cirando construtores da classe e chamando a super classe
     public Automotor(String modelo, LocalDate ano_fabricacao, String montadora, String cor, double kilometragem) {
+    	//Validação campos vazios
         if (modelo == null || modelo.isEmpty()) {
             throw new IllegalArgumentException("Modelo é obrigatório.");
         }

@@ -3,11 +3,13 @@ package models;
 import java.time.LocalDate;
 
 public class Bicicleta extends Automotor {
+	//Declarando variáveis
 	private String marca;
 	private String material;
 	private int qtd_marchas;
 	private boolean amortecedor;
 	
+	//Criando construtores da classe e chamando a super classe
 	public Bicicleta(String modelo, LocalDate anoFabricacao, String montadora, String cor, String marca, String material, int qtd_marchas, boolean amortecedor, double kilometragem) {
 		super(modelo, anoFabricacao, montadora, cor, kilometragem);
 		this.marca = marca;
@@ -30,15 +32,13 @@ public class Bicicleta extends Automotor {
         return qtd_marchas;
     }
 
-    public boolean isAmortecedor() {
+    public boolean getAmortecedor() {
         return amortecedor;
     }	
 	
-	
-    @Override
-    public String getInsert() {
-        return String.format("INSERT INTO Bicicleta (modelo, ano_fabricacao, montadora, cor, kilometragem, marca, material, qtd_marchas, amortecedor) VALUES ('%s', '%s', '%s', '%s', %.2f, '%s', '%s', %d, %b);",
-                getModelo(), getAno_fabricacao(), getMontadora(), getCor(), getKilometragem(),
-                marca, material, qtd_marchas, amortecedor);
-    }
+    
+	@Override
+	public String getInsert() {
+	    return getModelo() +  ", " + getAno_fabricacao() + ", " + getMontadora() + ", " + getCor() + ", " + getKilometragem() + ", " +  getMarca() + ", " + getMaterial() + getQtd_marchas() + ", " + getAmortecedor();
+	}
 }
